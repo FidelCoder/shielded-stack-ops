@@ -1,5 +1,10 @@
 {
   "updated_at": "2026-06-21T00:00:00Z",
+  "summary": {
+    "total_services": 0,
+    "reachable_services": 0,
+    "degraded_services": 0,
+    "unreachable_services": 0
+  },
   "services": []
 }
-

@@ -2,8 +2,7 @@
 
 Public operations and documentation hub for Zcash light client infrastructure.
 
-This repository contains endpoint metadata, status records, runbooks,
-maintenance notes, and operator-facing documentation.
+This repository contains endpoint metadata, status records, runbooks, maintenance notes, and operator-facing documentation.
 
 ## Repository Layout
 
@@ -19,6 +18,7 @@ runbooks/
 docs/
   endpoint-registry.md
   operator-guide.md
+  status-format.md
 reports/
   uptime/
 ```
@@ -30,6 +30,14 @@ reports/
 - Record maintenance and incidents with timestamps.
 - Avoid publishing secrets, credentials, IP allowlists, or private hostnames.
 
+## Validation
+
+From the sibling `shielded-stack` repository:
+
+```sh
+cargo run --manifest-path rust/Cargo.toml -p ssctl -- registry validate ../shielded-stack-ops/endpoints/mainnet.yaml
+cargo run --manifest-path rust/Cargo.toml -p ssctl -- registry validate ../shielded-stack-ops/endpoints/testnet.yaml
+```
 
 ## Work Tracking
 
