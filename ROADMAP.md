@@ -15,11 +15,10 @@ This file tracks what has been completed and what remains for the operations rep
 - Added uptime and maintenance report templates.
 - Documented CLI validation and registry probing commands.
 - Documented stricter endpoint registry validation rules.
+- Added automated status update workflow.
 
 ## Next
 
 - Add the first public endpoint records.
-- Populate status fields for height, latency, reachability, and last check time.
-- Add a repeatable status update process.
 - Add review rules for endpoint metadata changes.
 - Add diagrams for endpoint, monitoring, and status flows.

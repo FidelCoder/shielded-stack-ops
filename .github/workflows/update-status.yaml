@@ -1,0 +1,49 @@
+name: Update Status
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout operations repository
+        uses: actions/checkout@v4
+        with:
+          path: shielded-stack-ops
+
+      - name: Checkout tooling repository
+        uses: actions/checkout@v4
+        with:
+          repository: FidelCoder/shielded-stack
+          path: shielded-stack
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Generate status document
+        working-directory: shielded-stack
+        run: |
+          cargo run --manifest-path rust/Cargo.toml -p ssctl -- \
+            registry status \
+            ../shielded-stack-ops/endpoints/mainnet.yaml \
+            ../shielded-stack-ops/endpoints/testnet.yaml \
+            --output ../shielded-stack-ops/status/current.json
+
+      - name: Commit status update
+        working-directory: shielded-stack-ops
+        run: |
+          if git diff --quiet -- status/current.json; then
+            echo "status/current.json is unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add status/current.json
+          git commit -m "Update endpoint status snapshot"
+          git push
