@@ -14,6 +14,7 @@ This file tracks what has been completed and what remains for the operations rep
 - Added status format documentation.
 - Added uptime and maintenance report templates.
 - Documented CLI validation and registry probing commands.
+- Documented stricter endpoint registry validation rules.
 
 ## Next
 
