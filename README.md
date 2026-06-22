@@ -4,6 +4,12 @@ Public operations and documentation hub for Zcash light client infrastructure.
 
 This repository contains endpoint metadata, status records, runbooks, maintenance notes, and operator-facing documentation.
 
+## Practical Use
+
+The practical purpose is to publish real `lightwalletd` endpoint metadata and current health so wallets, services, operators, and dashboards can choose reachable, synced endpoints.
+
+See [docs/adoption.md](docs/adoption.md) for the adoption flow.
+
 ## Repository Layout
 
 ```text
@@ -16,6 +22,7 @@ runbooks/
   incident-response.md
   maintenance.md
 docs/
+  adoption.md
   endpoint-registry.md
   operator-guide.md
   status-format.md

@@ -2,6 +2,10 @@
 
 This guide covers the public records needed to operate Zcash light client endpoints transparently.
 
+## Practical Role
+
+Operators use this repository to make endpoint availability visible to wallets, services, and monitoring systems. A listed endpoint should be a real public `lightwalletd` service that can be probed from outside the operator network.
+
 ## Adding an Endpoint
 
 1. Add the endpoint to `endpoints/mainnet.yaml` or `endpoints/testnet.yaml`.
